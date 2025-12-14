@@ -1,3 +1,4 @@
+/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,14 +17,14 @@ public class AstSpawner : MonoBehaviour
     {
         if (boxArea == null)
         {
-            Debug.LogError("No asignaste el BoxCollider del área base.");
+            Debug.LogError("No asignaste el BoxCollider del ï¿½rea base.");
             return;
         }
 
-        // Obtener los límites del BoxCollider
+        // Obtener los lï¿½mites del BoxCollider
         Bounds bounds = boxArea.bounds;
 
-        // Crear una posición aleatoria dentro del box
+        // Crear una posiciï¿½n aleatoria dentro del box
         Vector3 randomPos = new Vector3(
             Random.Range(bounds.min.x, bounds.max.x),
             Random.Range(bounds.min.y, bounds.max.y),
@@ -31,5 +32,24 @@ public class AstSpawner : MonoBehaviour
         );
 
         Instantiate(prefab, randomPos, Quaternion.identity);
+    }
+}
+*/
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AstSpawner : MonoBehaviour
+{
+    public GameObject prefab;          // El prefab que quieres instanciar
+    public BoxCollider boxArea;
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(0, 21), 100, Random.Range(0, 21));
+            Instantiate(prefab, randomSpawnPosition, Quaternion.identity);
+        }
     }
 }
