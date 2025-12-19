@@ -3,7 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Destroy
+  - astn0
+  - astn1
+  - astn2
+  - astn3
+  - astn4
+  - astn5
+  - astn6
+  - astn7
+  - astn8
+  - astn9
   layers:
   - Default
   - TransparentFX
