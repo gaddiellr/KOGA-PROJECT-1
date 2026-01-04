@@ -52,7 +52,7 @@ public class AstSpawner : MonoBehaviour
         }
     }
 }
-*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -79,6 +79,50 @@ public class AstSpawner : MonoBehaviour
                 );
 
                 Instantiate(prefabs[solutions[index, i]], pos, Quaternion.identity);
+            }
+        }
+    }
+}
+*/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AstSpawner : MonoBehaviour
+{
+    public GameObject[] prefabs;
+    private List<int> num;
+    [SerializeField] private int a;
+    [SerializeField] private int b;
+    [SerializeField] private int r;
+    public int A => a;
+    public int B => b;
+    public int R => r;
+
+    void Update()
+    {
+        num = new() {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            int x = UnityEngine.Random.Range(0, 10);
+            a = UnityEngine.Random.Range(-100, 101);
+            b = UnityEngine.Random.Range(-50, 50);
+            r = x * a + b;
+            num.Remove(x);
+            for (int i = 0; i < 4; i++)
+            {
+                Vector3 pos = new Vector3(UnityEngine.Random.Range(0, 21), 100, UnityEngine.Random.Range(0, 21));
+                if (i == 1)
+                {
+                    Instantiate(prefabs[x], pos, Quaternion.identity);
+                }
+                else
+                {
+                    int notx = num[UnityEngine.Random.Range(0, num.Count)];
+                    Instantiate(prefabs[notx], pos, Quaternion.identity);
+                    num.Remove(notx);
+                }
             }
         }
     }
