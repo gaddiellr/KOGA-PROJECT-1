@@ -10,6 +10,10 @@ public class ShowEquation : MonoBehaviour
 
     void Update()
     {
+        if (spawner == null || equation == null)
+        {
+            return;
+        }
         if (spawner.B >= 0)
         {
             equation.text = "Equation: " + spawner.A.ToString() + "x + " + spawner.B.ToString() + " = " + spawner.R.ToString();
