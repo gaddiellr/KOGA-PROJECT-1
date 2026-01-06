@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3122874014160560922}
   - component: {fileID: 6749892876248634765}
   - component: {fileID: 4620407544278548761}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: node_id30
   m_TagString: astn0
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7733390450781637397}
   - component: {fileID: 6527876388600024885}
   - component: {fileID: 2068533780661802566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: astn0
   m_TagString: astn0
   m_Icon: {fileID: 0}
@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 1961892405043269307}
   - component: {fileID: 8209305121444442676}
   - component: {fileID: 3244048568522179646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spectacular Hillar (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

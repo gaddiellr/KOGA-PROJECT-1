@@ -2001,6 +2001,10 @@ MonoBehaviour:
   - {fileID: 4989392256975831448, guid: 854846887b3c1da45b11c9ce34c9c9e5, type: 3}
   - {fileID: 3695875731741187753, guid: 5f8f4e1129087454e906c5befd2ccb7b, type: 3}
   - {fileID: 8698382577388395595, guid: f053d354ba0c4a847bd9d8b1a7c7e8d9, type: 3}
+  spawnRadius: 1.15
+  asteroidMask:
+    serializedVersion: 2
+    m_Bits: 64
   a: 0
   b: 0
   r: 0
