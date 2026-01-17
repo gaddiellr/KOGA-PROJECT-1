@@ -160,18 +160,22 @@ public class AstSpawner : MonoBehaviour
 
             for (int i = 0; i < 4; i++)
             {
-                Vector3 pos = GetFreePosition();
+                //Vector3 pos = GetFreePosition();
+                Vector3 pos = new Vector3(0, 100, 0);
 
                 if (i == 1)
                 {
+                    //Instantiate(prefabs[x], pos, Quaternion.identity);
                     Instantiate(prefabs[x], pos, Quaternion.identity);
                 }
+                /*
                 else
                 {
                     int notx = num[Random.Range(0, num.Count)];
                     Instantiate(prefabs[notx], pos, Quaternion.identity);
                     num.Remove(notx);
                 }
+                */
             }
         }
     }
