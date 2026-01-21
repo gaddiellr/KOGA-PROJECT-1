@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6609127891157163689}
   m_Layer: 6
   m_Name: node_id62
-  m_TagString: Untagged
+  m_TagString: astn2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3922612135780337798}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
@@ -191,8 +191,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4492895275224120625}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.16800001, y: 0.05319999, z: 0.24487999}
   m_Center: {x: -0.12276, y: -0.035799995, z: 0.17098011}

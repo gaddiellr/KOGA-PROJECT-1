@@ -92,8 +92,8 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4824982989504953173}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
+  m_IsTrigger: 0
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.17239122, y: 0.053527888, z: 0.24498002}
   m_Center: {x: -0.14378439, y: -0.03614393, z: 0.19333}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 816782596305835227}
   m_Layer: 6
   m_Name: node_id76
-  m_TagString: Untagged
+  m_TagString: astn3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

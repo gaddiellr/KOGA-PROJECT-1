@@ -297,9 +297,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bea3d0e9bb3d43439a58296c24ec0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroidLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  spawner: {fileID: 0}
+  targetTag0: astn0
+  targetTag1: astn1
+  targetTag2: astn2
+  targetTag3: astn3
+  targetTag4: astn4
+  targetTag5: astn5
+  targetTag6: astn6
+  targetTag7: astn7
+  targetTag8: astn8
+  targetTag9: astn9
 --- !u!95 &-1439151493366364693
 Animator:
   serializedVersion: 5
