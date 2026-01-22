@@ -2109,7 +2109,7 @@ MonoBehaviour:
   - {fileID: 4989392256975831448, guid: 854846887b3c1da45b11c9ce34c9c9e5, type: 3}
   - {fileID: 3695875731741187753, guid: 5f8f4e1129087454e906c5befd2ccb7b, type: 3}
   - {fileID: 8698382577388395595, guid: f053d354ba0c4a847bd9d8b1a7c7e8d9, type: 3}
-  spawnRadius: 1.15
+  spawnRadius: 1.8
   asteroidMask:
     serializedVersion: 2
     m_Bits: 64
@@ -2264,7 +2264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce42f07a2254234590fc322f9ee3872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoretxt: {fileID: 0}
+  scoretxt: {fileID: 1856427173}
 --- !u!114 &1856427173
 MonoBehaviour:
   m_ObjectHideFlags: 0

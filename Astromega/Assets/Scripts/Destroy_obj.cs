@@ -27,13 +27,10 @@ public class Destroy_obj : MonoBehaviour
         {
             string astTag = other.tag;
             int n = int.Parse(astTag.Substring(4));
-            Debug.Log(n);
             if (spawner != null)
             {
-                Debug.Log("lllllll");
                 if (n == ((spawner.R - spawner.B) / spawner.A))
                 {
-                    Debug.Log("add score");
                     ScoreManager.Instance.AddScore(1);
                 }
             }
