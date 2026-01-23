@@ -5,7 +5,7 @@ public class AstSpawner : MonoBehaviour
 {
     public GameObject[] prefabs;
 
-    [SerializeField] private float spawnRadius = 1.4f;
+    [SerializeField] private float spawnRadius = 2.5f;
     [SerializeField] private LayerMask asteroidMask;
 
     [SerializeField] private int a;
