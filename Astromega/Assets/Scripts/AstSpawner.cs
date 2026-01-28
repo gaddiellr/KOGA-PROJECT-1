@@ -4,36 +4,44 @@ using UnityEngine;
 public class AstSpawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-
     [SerializeField] private float spawnRadius = 2.5f;
     [SerializeField] private LayerMask asteroidMask;
-
     [SerializeField] private int a;
     [SerializeField] private int b;
     [SerializeField] private int r;
-
     public int A => a;
     public int B => b;
     public int R => r;
+    private float dt = 0.0f;
+    private float lastT = 0.0f;
+    private bool spawn = true;
+    public bool Spawn
+    {
+        get { return spawn; }
+        set { spawn = value; }
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        dt= Time.time - lastT;
+        if (dt >= 5.0f)
         {
+            Spawn = true;
+        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        if (Spawn == true)
+        {
+            Spawn = false;
             List<int> num = new() { 0,1,2,3,4,5,6,7,8,9 };
-
             int x = Random.Range(0, 10);
             a = Random.Range(-100, 101);
             b = Random.Range(-50, 50);
             r = x * a + b;
-
             num.Remove(x);
-
             for (int i = 0; i < 4; i++)
             {
                 Vector3 pos = GetFreePosition();
                 //Vector3 pos = new Vector3(0, 100, 0);
-
                 if (i == 1)
                 {
                     Instantiate(prefabs[x], pos, Quaternion.identity);
@@ -47,6 +55,7 @@ public class AstSpawner : MonoBehaviour
                 }
                 /**/
             }
+            lastT = Time.time;
         }
     }
 

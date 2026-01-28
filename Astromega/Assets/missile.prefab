@@ -243,6 +243,8 @@ MonoBehaviour:
   targetTag7: astn7
   targetTag8: astn8
   targetTag9: astn9
+  explosionPrefab: {fileID: 5352953407842582504, guid: 43cc652fc6633f148a9086b97685a9f3,
+    type: 3}
 --- !u!136 &3310662686982264895
 CapsuleCollider:
   m_ObjectHideFlags: 0

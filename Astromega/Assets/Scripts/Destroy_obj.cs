@@ -14,6 +14,7 @@ public class Destroy_obj : MonoBehaviour
     public string targetTag7 = "astn7";
     public string targetTag8 = "astn8";
     public string targetTag9 = "astn9";
+    public GameObject explosionPrefab;
     private AstSpawner spawner;
 
     private void Awake()
@@ -34,8 +35,12 @@ public class Destroy_obj : MonoBehaviour
                     ScoreManager.Instance.AddScore(1);
                 }
             }
+            Vector3 pos = gameObject.transform.position;
+            Quaternion rot = Random.rotation;
+            Instantiate(explosionPrefab, pos, rot);
             Destroy(other.gameObject);
             Destroy(gameObject);
+            spawner.Spawn = true;
         }
     }
 }

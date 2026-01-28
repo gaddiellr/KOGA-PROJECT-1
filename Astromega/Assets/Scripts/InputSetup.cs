@@ -1,0 +1,26 @@
+/*
+using UnityEngine;
+
+public class InputSetup : MonoBehaviour
+{
+    void Awake()
+    {
+        Input.multiTouchEnabled = true;
+    }
+}
+*/
+using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
+
+public class InputSetup : MonoBehaviour
+{
+    void Awake()
+    {
+        EnhancedTouchSupport.Enable();
+    }
+
+    void OnDestroy()
+    {
+        EnhancedTouchSupport.Disable();
+    }
+}
