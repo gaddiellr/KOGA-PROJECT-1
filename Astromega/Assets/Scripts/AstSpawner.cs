@@ -4,14 +4,14 @@ using UnityEngine;
 public class AstSpawner : MonoBehaviour
 {
     public GameObject[] prefabs;
-    [SerializeField] private float spawnRadius = 2.5f;
-    [SerializeField] private LayerMask asteroidMask;
-    [SerializeField] private int a;
-    [SerializeField] private int b;
-    [SerializeField] private int r;
+    private int a;
+    private int b;
+    private int r;
     public int A => a;
     public int B => b;
     public int R => r;
+    private float max = 28.5f;
+    private float min = -7.5f;
     private float dt = 0.0f;
     private float lastT = 0.0f;
     private bool spawn = true;
@@ -28,56 +28,63 @@ public class AstSpawner : MonoBehaviour
         {
             Spawn = true;
         }
-        //if (Input.GetKeyDown(KeyCode.Space))
         if (Spawn == true)
         {
             Spawn = false;
-            List<int> num = new() { 0,1,2,3,4,5,6,7,8,9 };
+            List<int> num = new() {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            List<float> pointsx = new List<float>();
+            List<float> pointsy = new List<float>();
+            float px;
+            float py;
             int x = Random.Range(0, 10);
             a = Random.Range(-100, 101);
             b = Random.Range(-50, 50);
             r = x * a + b;
-            num.Remove(x);
             for (int i = 0; i < 4; i++)
-            {
-                Vector3 pos = GetFreePosition();
-                //Vector3 pos = new Vector3(0, 100, 0);
-                if (i == 1)
+            {                    
+                px = Random.Range(min, max);
+                py = Random.Range(min, max);
+                if (i > 0)
                 {
-                    Instantiate(prefabs[x], pos, Quaternion.identity);
+                    x = num[Random.Range(0, num.Count)];
+
+                    if (i == 1)
+                    {
+                        while (intersect(px, pointsx[0]) && intersect(py, pointsy[0]))
+                        {
+                            px = Random.Range(min, max);
+                            py = Random.Range(min, max);
+                        }
+                    }
+                    if (i == 2)
+                    {
+                        while (intersect(px, pointsx[0]) && intersect(py, pointsy[0]) || intersect(px, pointsx[1]) && intersect(py, pointsy[1]))
+                        {
+                            px = Random.Range(min, max);
+                            py = Random.Range(min, max);
+                        }
+                    }
+                    if (i == 3)
+                    {
+                        while (intersect(px, pointsx[0]) && intersect(py, pointsy[0]) || intersect(px, pointsx[1]) && intersect(py, pointsy[1]) || intersect(px, pointsx[2]) && intersect(py, pointsy[2]))
+                        {
+                            px = Random.Range(min, max);
+                            py = Random.Range(min, max);
+                        }
+                    }
                 }
-                /**/
-                else
-                {
-                    int notx = num[Random.Range(0, num.Count)];
-                    Instantiate(prefabs[notx], pos, Quaternion.identity);
-                    num.Remove(notx);
-                }
-                /**/
+                pointsx.Add(px);
+                pointsy.Add(py);
+                Instantiate(prefabs[x], new Vector3(px, 100f, py), Quaternion.identity);
+                num.Remove(x);
             }
             lastT = Time.time;
         }
     }
 
-    Vector3 GetFreePosition()
+    bool intersect(float a, float b)
     {
-        Vector3 pos = new Vector3(Random.Range(0, 21), 100, Random.Range(0, 21));
-        bool finish = IsPositionFree(pos);
-        while (!finish)
-        {
-            pos = new Vector3(Random.Range(0, 21), 100, Random.Range(0, 21));
-            finish = IsPositionFree(pos);
-        }
-        return pos;
-    }
-
-    bool IsPositionFree(Vector3 position)
-    {
-        return !Physics.CheckSphere(
-            position,
-            spawnRadius,
-            asteroidMask,
-            QueryTriggerInteraction.Ignore
-        );
+        if ((b - 5.5f) <= (a + 5.5f) && (b - 5.5f) >= (a - 5.5f) || (b + 5.5f) <= (a + 5.5f) && (b + 5.5f) >= (a - 5.5f)) return true;
+        else return false;
     }
 }

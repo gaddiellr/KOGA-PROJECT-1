@@ -7,10 +7,11 @@ public class RandomMusicPlayer : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] soundtracks;
 
-    private int lastIndex = Random.Range(0, 3);
+    private int lastIndex;
 
     void Start()
     {
+        lastIndex = Random.Range(0, 3);
         if (audioSource == null)
             audioSource = GetComponent<AudioSource>();
 
