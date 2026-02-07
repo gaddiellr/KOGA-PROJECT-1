@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Shoot : MonoBehaviour
 {
     public GameObject projectilePrefab;
+    public GameObject flash;
     public Transform spawnPoint;
     public RectTransform buttonRect;
     public Image targetImage;
@@ -48,6 +49,7 @@ public class Shoot : MonoBehaviour
         if (Vector2.Distance(screenPosition, circleCenter) <= radius)
         {
             Instantiate(projectilePrefab, spawnPoint.position, Quaternion.identity);
+            Instantiate(flash, spawnPoint.position, Quaternion.Euler(90f, 0f, 0f));
             lastT = Time.time;
         }
     }
