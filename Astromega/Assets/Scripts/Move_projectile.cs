@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Move_projectile : MonoBehaviour
 {
-    //public Shoot shootB;
     public float speed = 5f;
     private float startTime = 0f;
     private float interval = 0.3f;
@@ -12,14 +11,12 @@ public class Move_projectile : MonoBehaviour
     void Start()
     {
         startTime = Time.time;
-        Debug.Log(startTime);
     }
 
     void Update()
     {
         if ((Time.time - startTime) < interval)
         {
-            //if (shootB.Up)
             if (UpManager.Instance.shootB.Up)
             {
                 transform.position += new Vector3(-1.5f/(interval * speed), 0.1f, -0.2f/(interval * speed)) * speed * Time.deltaTime;
