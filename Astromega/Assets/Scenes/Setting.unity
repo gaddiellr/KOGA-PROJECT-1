@@ -348,6 +348,7 @@ GameObject:
   - component: {fileID: 19510568}
   - component: {fileID: 19510567}
   - component: {fileID: 19510566}
+  - component: {fileID: 19510569}
   m_Layer: 5
   m_Name: Save
   m_TagString: Untagged
@@ -419,7 +420,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 19510567}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 19510569}
+        m_TargetAssemblyTypeName: JSONConfig, Assembly-CSharp
+        m_MethodName: SaveToJSON
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &19510567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +471,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19510564}
   m_CullTransparentMesh: 1
+--- !u!114 &19510569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19510564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7750ff3e090a15549b23bc622866b32e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: Controller.json
+  loadOnStart: 1
+  saveOnDestroy: 0
+  uiElements:
+  - elementId: Id_Right_Canva_Moving
+    targetObject: {fileID: 1888536641}
+    rectTransform: {fileID: 314560585}
+    controlSlider: {fileID: 1182436779}
+    saveEnabled: 1
+    saveSize: 1
+    saveSliderValue: 1
+  - elementId: Id_Right_Canva_Shooting
+    targetObject: {fileID: 1632562385}
+    rectTransform: {fileID: 759253454}
+    controlSlider: {fileID: 117889260}
+    saveEnabled: 1
+    saveSize: 1
+    saveSliderValue: 1
+  - elementId: Id_Left_Canva_Moving
+    targetObject: {fileID: 885651057}
+    rectTransform: {fileID: 329920294}
+    controlSlider: {fileID: 492808070}
+    saveEnabled: 1
+    saveSize: 1
+    saveSliderValue: 1
+  - elementId: Id_Left_Canva_Shooting
+    targetObject: {fileID: 885651057}
+    rectTransform: {fileID: 2041343878}
+    controlSlider: {fileID: 77664683}
+    saveEnabled: 1
+    saveSize: 1
+    saveSliderValue: 1
+  saveButton: {fileID: 19510566}
+  loadButton: {fileID: 0}
+  resetButton: {fileID: 0}
+  feedbackText: {fileID: 0}
 --- !u!1 &31778783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,7 +1379,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1045017979}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1888536641}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
@@ -6135,6 +6196,12 @@ Transform:
   m_Father: {fileID: 1863602035}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1888536641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+    type: 3}
+  m_PrefabInstance: {fileID: 1045017979}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1892640826
 GameObject:
   m_ObjectHideFlags: 0
