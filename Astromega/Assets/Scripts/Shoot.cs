@@ -10,6 +10,8 @@ public class Shoot : MonoBehaviour
     public Transform spawnPoint;
     public RectTransform buttonRect;
     public Image targetImage;
+    public AudioSource audioSource;
+    public AudioClip[] soundtracks;
     private Vector2 circleCenter;
     private int radius;
     private float dt = 0.0f;
@@ -24,6 +26,7 @@ public class Shoot : MonoBehaviour
         Debug.Log(radius);
         Debug.Log($"Pos X: {circleCenter.x}, Pos Y: {circleCenter.y}");
     }
+
     void Update()
     {
         if (Touchscreen.current != null)
@@ -61,7 +64,19 @@ public class Shoot : MonoBehaviour
                 Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x + 1.5f, spawnPoint.position.y + 0.8f, spawnPoint.position.z + 0.7f), Quaternion.identity);
                 Instantiate(flash, new Vector3(spawnPoint.position.x + 1.5f, spawnPoint.position.y + 0.8f, spawnPoint.position.z + 0.7f), Quaternion.Euler(90f, 0f, 0f));
             }
+            if (soundtracks.Length > 0)
+            {
+                PlayRandomTrack();
+            }
             lastT = Time.time;
         }
+    }
+
+    void PlayRandomTrack()
+    {
+        if (soundtracks.Length == 0) return;
+        int randomIndex= Random.Range(0, soundtracks.Length);
+        audioSource.clip = soundtracks[randomIndex];
+        audioSource.Play();
     }
 }

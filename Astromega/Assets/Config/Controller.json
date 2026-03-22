@@ -2,10 +2,10 @@
     "elements": [
         {
             "elementId": "Id_Right_Canva_Moving",
-            "width": 590.5865478515625,
-            "height": 590.5865478515625,
+            "width": 574.9041748046875,
+            "height": 574.9041748046875,
             "isEnabled": true,
-            "sliderValue": 0.4227914810180664
+            "sliderValue": 0.3982877731323242
         },
         {
             "elementId": "Id_Right_Canva_Shooting",
