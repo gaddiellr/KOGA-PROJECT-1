@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreathMove : MonoBehaviour
+public class BreathMoveCrosshair : MonoBehaviour
 {
     [Header("Breathing")]
     public float breathSpeed = 0.8f;
@@ -62,5 +62,4 @@ public class BreathMove : MonoBehaviour
         // ✅ Final position
         rectTransform.anchoredPosition = basePos + new Vector2(0, breathOffset);
     }
-
 }

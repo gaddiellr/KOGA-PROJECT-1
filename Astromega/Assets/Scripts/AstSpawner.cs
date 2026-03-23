@@ -10,8 +10,8 @@ public class AstSpawner : MonoBehaviour
     public int A => a;
     public int B => b;
     public int R => r;
-    private float max = 28.5f;
-    private float min = -7.5f;
+    private float max = 17.51f;
+    private float min = -17.5f;
     private float dt = 0.0f;
     private float lastT = 0.0f;
     private bool spawn = true;
@@ -38,6 +38,10 @@ public class AstSpawner : MonoBehaviour
             float py;
             int x = Random.Range(0, 10);
             a = Random.Range(-100, 101);
+            while (a == 0)
+            {
+                a = Random.Range(-100, 101);
+            }
             b = Random.Range(-50, 50);
             r = x * a + b;
             for (int i = 0; i < 4; i++)
@@ -75,7 +79,7 @@ public class AstSpawner : MonoBehaviour
                 }
                 pointsx.Add(px);
                 pointsy.Add(py);
-                Instantiate(prefabs[x], new Vector3(px, 100f, py), Quaternion.identity);
+                Instantiate(prefabs[x], new Vector3(px, py, 100f), Quaternion.Euler(0f, -90f, -90f));
                 num.Remove(x);
             }
             lastT = Time.time;
