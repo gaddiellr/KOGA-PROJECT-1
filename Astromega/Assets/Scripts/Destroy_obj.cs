@@ -43,4 +43,9 @@ public class Destroy_obj : MonoBehaviour
             spawner.Spawn = true;
         }
     }
+
+    void OnParticleCollision(GameObject other)
+    {
+        Destroy(other);
+    }
 }

@@ -15,15 +15,16 @@ TagManager:
   - astn7
   - astn8
   - astn9
+  - BlackHole
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Particle
   - Water
   - UI
   - Asteroid
-  - 
+  - ColliderBH
   - 
   - 
   - 
