@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4606442039553801548}
+  - {fileID: 7141548021333084294}
   - {fileID: 5247841371105517168}
   - {fileID: 543450653482343061}
   m_Father: {fileID: 0}
@@ -72,9 +72,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4606442039553801548}
+  - component: {fileID: 7141548021333084294}
   - component: {fileID: 4746835830994360828}
   - component: {fileID: 886800362602282275}
+  - component: {fileID: 7242403850082679331}
   m_Layer: 0
   m_Name: BH_Disks
   m_TagString: Untagged
@@ -82,8 +83,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4606442039553801548
-Transform:
+--- !u!224 &7141548021333084294
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -97,6 +98,11 @@ Transform:
   m_Father: {fileID: 7338654722553527376}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 512, y: 512}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &4746835830994360828
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -147,6 +153,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!222 &7242403850082679331
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3025798543477384389}
+  m_CullTransparentMesh: 1
 --- !u!1 &8577111776825671315
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +279,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4d06464dfc547c14eb6170ef34895003,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d06464dfc547c14eb6170ef34895003,
         type: 3}
@@ -321,6 +335,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d06464dfc547c14eb6170ef34895003,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d06464dfc547c14eb6170ef34895003,
         type: 3}

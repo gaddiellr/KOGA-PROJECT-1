@@ -37,12 +37,12 @@ public class AstSpawner : MonoBehaviour
             float px;
             float py;
             int x = Random.Range(0, 10);
-            a = Random.Range(-100, 101);
+            a = Random.Range(-10, 10);
             while (a == 0)
             {
-                a = Random.Range(-100, 101);
+                a = Random.Range(-10, 10);
             }
-            b = Random.Range(-50, 50);
+            b = Random.Range(-10, 11);
             r = x * a + b;
             for (int i = 0; i < 4; i++)
             {                    

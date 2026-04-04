@@ -265,7 +265,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4d06464dfc547c14eb6170ef34895003,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.48
+      value: 0.46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4d06464dfc547c14eb6170ef34895003,
         type: 3}
@@ -321,6 +321,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cylinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d06464dfc547c14eb6170ef34895003,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4d06464dfc547c14eb6170ef34895003,
         type: 3}
