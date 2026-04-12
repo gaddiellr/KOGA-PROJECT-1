@@ -2,30 +2,30 @@
     "elements": [
         {
             "elementId": "Id_Right_Canva_Moving",
-            "width": 320.0,
-            "height": 320.0,
+            "width": 458.0383605957031,
+            "height": 458.0383605957031,
             "isEnabled": true,
-            "sliderValue": 0.0
+            "sliderValue": 0.2156849503517151
         },
         {
             "elementId": "Id_Right_Canva_Shooting",
             "width": 320.0,
             "height": 320.0,
-            "isEnabled": true,
+            "isEnabled": false,
             "sliderValue": 0.0
         },
         {
             "elementId": "Id_Left_Canva_Moving",
             "width": 320.0,
             "height": 320.0,
-            "isEnabled": false,
+            "isEnabled": true,
             "sliderValue": 0.0
         },
         {
             "elementId": "Id_Left_Canva_Shooting",
             "width": 320.0,
             "height": 320.0,
-            "isEnabled": false,
+            "isEnabled": true,
             "sliderValue": 0.0
         }
     ]
