@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class Switch_canvas : MonoBehaviour
 {
-    public GameObject leftCanvas;
-    public GameObject rightCanvas;
+    public RectTransform button;
+    public RectTransform joystick;
 
     public void ChangeHand(int value)
     {
         if (value == 0) // Right hand
         {
-            rightCanvas.SetActive(true);
-            leftCanvas.SetActive(false);
+            button.anchorMin = new Vector2(1, 0);
+            button.anchorMax = new Vector2(1, 0);
+            joystick.anchorMin = new Vector2(0, 0);
+            joystick.anchorMax = new Vector2(0, 0);
+            button.anchoredPosition = new Vector2(-300, 300);
+            joystick.anchoredPosition = new Vector2(300, 300);
         }
         else if (value == 1) // Southpaw (left hand)
         {
-            rightCanvas.SetActive(false);
-            leftCanvas.SetActive(true);
+            button.anchorMin = new Vector2(0, 0);
+            button.anchorMax = new Vector2(0, 0);
+            joystick.anchorMin = new Vector2(1, 0);
+            joystick.anchorMax = new Vector2(1, 0);
+            button.anchoredPosition = new Vector2(300, 300);
+            joystick.anchoredPosition = new Vector2(-300, 300);
         }
     }
 }

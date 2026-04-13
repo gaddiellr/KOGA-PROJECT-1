@@ -6,8 +6,8 @@ public class SphereSpawner : MonoBehaviour
     public GameObject[] prefabs;
     private float spawnV = 4350f;
     private float spawnH = 2900f;
-    private float limitV = 1500f;
-    private float limitH = 2500f;
+    private float limitV = 1200f;
+    private float limitH = 2000f;
     public float SpawnV => spawnV;
     public float SpawnH => spawnH;
     public float LimitV => limitH;
@@ -23,14 +23,14 @@ public class SphereSpawner : MonoBehaviour
     void Update()
     {
         dt= Time.time - lastT;
-        if (dt >= 40f)
+        if (dt >= 80f)
         {
             spawn = true;
         }
         if (spawn == true)
         {
             spawn = false;
-            int x = Random.Range(0, 4);
+            int x = Random.Range(0, 2);
             isV = Random.Range(0, 2) == 1;
             neg = Random.Range(0, 2) == 1;
             if (isV)

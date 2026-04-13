@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.IO;
 
 public class Shoot : MonoBehaviour
 {
@@ -18,11 +19,34 @@ public class Shoot : MonoBehaviour
     private float lastT = -1f;
     private bool up = true;
     public bool Up => up;
+    private string filePath;
+    private string fileName = "settings.json";
 
     void Start()
     {
-        radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2f);
-        circleCenter = new Vector2(Screen.width + buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);;
+        string folderPath = Path.Combine(Application.dataPath, "Config");
+        filePath = Path.Combine(folderPath, fileName);
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            SettingsData data = JsonUtility.FromJson<SettingsData>(json);
+            radius = Mathf.RoundToInt(160 * (2 * data.buttonVal + 1));
+            if (data.dropdownVal == 0)
+            {
+                circleCenter = new Vector2(Screen.width + buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);
+            }
+            else
+            {
+                circleCenter = new Vector2(buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);
+            }            
+            Debug.Log("Loaded from: " + filePath);
+        }
+        else
+        {
+            Debug.Log("No save file found.");
+            radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2f);
+            circleCenter = new Vector2(Screen.width + buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);
+        }
         Debug.Log(radius);
         Debug.Log($"Pos X: {circleCenter.x}, Pos Y: {circleCenter.y}");
     }

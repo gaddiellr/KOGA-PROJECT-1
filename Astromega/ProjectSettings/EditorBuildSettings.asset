@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: b57f10e466a10a24e91c4e5feaebc8ee
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: 1275673f12740964eac760ff44fd6196
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 5b66aa848bd9fe94db823c10a76cfb5f
@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Score.unity
     guid: 060210d8c662a5f4baaca44fb680d6cb
+  - enabled: 1
+    path: Assets/Scenes/Gameplay_1.unity
+    guid: ca4ad128c3209bf498bf08cbe6e87af0
+  - enabled: 1
+    path: Assets/Scenes/Setting_1.unity
+    guid: e0b59c33ea991ff46ae1a792b8886ceb
   m_configObjects: {}

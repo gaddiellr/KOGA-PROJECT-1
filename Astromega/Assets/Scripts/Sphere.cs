@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Sphere : MonoBehaviour
 {
-    public float speed = 4f;
+    private float speed = 2f;
     private float startTime = 0f;
     private Vector3 vel;
-    private float t = 35f;
+    private float t = 75f;
     private float goalV = 3800f;
     private float goalH = 2569f;
 
