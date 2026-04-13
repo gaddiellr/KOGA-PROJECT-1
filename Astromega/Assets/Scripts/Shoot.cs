@@ -26,6 +26,11 @@ public class Shoot : MonoBehaviour
     {
         string folderPath = Path.Combine(Application.dataPath, "Config");
         filePath = Path.Combine(folderPath, fileName);
+        LoadSettingsFile();
+    }
+
+    private void LoadSettingsFile()
+    {
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
@@ -33,22 +38,22 @@ public class Shoot : MonoBehaviour
             radius = Mathf.RoundToInt(160 * (2 * data.buttonVal + 1));
             if (data.dropdownVal == 0)
             {
-                circleCenter = new Vector2(Screen.width + buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);
+                circleCenter = new Vector2(Screen.width - 300, 300);
             }
             else
             {
-                circleCenter = new Vector2(buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);
-            }            
+                circleCenter = new Vector2(300, 300);
+            }
+            Debug.Log(radius);
+            Debug.Log($"Pos X: {circleCenter.x}, Pos Y: {circleCenter.y}");
             Debug.Log("Loaded from: " + filePath);
         }
         else
         {
+            radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2);
+            circleCenter = buttonRect.anchoredPosition;
             Debug.Log("No save file found.");
-            radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2f);
-            circleCenter = new Vector2(Screen.width + buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);
         }
-        Debug.Log(radius);
-        Debug.Log($"Pos X: {circleCenter.x}, Pos Y: {circleCenter.y}");
     }
 
     void Update()

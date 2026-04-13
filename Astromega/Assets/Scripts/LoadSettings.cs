@@ -42,7 +42,6 @@ public class LoadSettings : MonoBehaviour
             }
             button.sizeDelta = new Vector2(320 * (2 * data.buttonVal + 1), 320 * (2 * data.buttonVal + 1));
             joystick.sizeDelta = new Vector2(320 * (2 * data.joystickVal + 1), 320 * (2 * data.joystickVal + 1));
-            Debug.Log(2 * data.buttonVal + 1);
             Debug.Log("Loaded from: " + filePath);
         }
         else
