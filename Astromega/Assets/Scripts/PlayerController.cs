@@ -97,21 +97,15 @@ public class PlayerController : MonoBehaviour
                     lastT = Time.time;
                 }
             }
-            else
+            else if (dt > 2f)
             {
                 List<int> select = new() {0, 1, 2, 3};
                 select.Remove(x);
                 x = select[Random.Range(0, select.Count)];
                 RenderSettings.skybox = materials[x];
-                enter = false;
-            }
-        }
-        else
-        {
-            if (dt > 2f)
-            {
                 black.SetActive(false);
                 img.color = new Vector4(0f, 0f, 0f, 0f);
+                enter = false;
             }
         }
     }
@@ -120,8 +114,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("BlackHole"))
         {
-            imgColor = new Vector4(0f, 0f, 0f, 0.2f);
-            img.color = imgColor;
+            if (!enter)
+            {
+                imgColor = new Vector4(0f, 0f, 0f, 0.2f);
+                img.color = imgColor;
+            }
             black.SetActive(true);
             enter = true;
         }

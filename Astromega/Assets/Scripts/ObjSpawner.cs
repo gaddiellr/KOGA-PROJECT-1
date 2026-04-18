@@ -28,6 +28,8 @@ public class ObjSpawner : MonoBehaviour
             int x = Random.Range(0, 3);
             /*
             int x = 3;
+            ry = Random.Range(-max[x], max[x]) / 1.5f;
+            rz = Random.Range(-max[x], max[x]) / 1.5f;
             px = 0;
             bool upp = Random.Range(0, 2) == 1;
             py = upp ? 550f : -550f;
