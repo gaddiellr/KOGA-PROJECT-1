@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -59,5 +60,70 @@ public class PlayerController : MonoBehaviour
         black.SetActive(false);
         img.color = new Vector4(0f, 0f, 0f, 0f);
     }
-    
+}
+*/
+
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
+using System.Collections.Generic;
+
+[RequireComponent(typeof(Rigidbody), typeof (BoxCollider))]
+public class PlayerController : MonoBehaviour
+{
+    [SerializeField] private Rigidbody _rigidbody;
+    [SerializeField] private FixedJoystick _joystick;
+    [SerializeField] private float moveSpeed;
+    public GameObject black;
+    private Vector4 imgColor;
+    public Image img;
+    public Material[] materials;
+    private int x = 0;
+    private bool enter = false;
+    private float dt = 0.0f;
+    private float lastT = 0.0f;
+
+    void Update()
+    {
+        dt = Time.time - lastT;
+        _rigidbody.velocity = new Vector3(_joystick.Vertical * moveSpeed, -_joystick.Horizontal * moveSpeed, 0);
+        if (enter){
+            if (imgColor.w < 1f)
+            {
+                if (dt > 0.02f)
+                {
+                    imgColor.w += 0.2f;
+                    img.color = imgColor;
+                    lastT = Time.time;
+                }
+            }
+            else
+            {
+                List<int> select = new() {0, 1, 2, 3};
+                select.Remove(x);
+                x = select[Random.Range(0, select.Count)];
+                RenderSettings.skybox = materials[x];
+                enter = false;
+            }
+        }
+        else
+        {
+            if (dt > 2f)
+            {
+                black.SetActive(false);
+                img.color = new Vector4(0f, 0f, 0f, 0f);
+            }
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("BlackHole"))
+        {
+            imgColor = new Vector4(0f, 0f, 0f, 0.2f);
+            img.color = imgColor;
+            black.SetActive(true);
+            enter = true;
+        }
+    }
 }

@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dest : MonoBehaviour
+public class Obj : MonoBehaviour
 {
-    private float startTime = 0f;
+    public float maxSize = 100f;
     private float t = 80f;
     private float timer = 0f;
+    private float startTime = 0f;
     private float growTime = 40f;
-    private float maxSize = 50f;
     private Vector3 startScale;
     private Vector3 maxScale;
 
