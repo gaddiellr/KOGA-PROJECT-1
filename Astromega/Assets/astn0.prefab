@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 7733390450781637397}
   - component: {fileID: 6527876388600024885}
   - component: {fileID: 2068533780661802566}
+  - component: {fileID: 7137241458601098720}
   m_Layer: 6
   m_Name: astn0
   m_TagString: astn0
@@ -142,7 +143,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -160,6 +161,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Destroy
+--- !u!114 &7137241458601098720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924659398439375279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 515cfcbb2163727459a0eea5dc766dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
+  rigidBody: {fileID: 6527876388600024885}
 --- !u!1 &9206241078045298173
 GameObject:
   m_ObjectHideFlags: 0

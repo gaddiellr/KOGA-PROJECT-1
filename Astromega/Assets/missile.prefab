@@ -220,7 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 124d4582382b7a04fb9e34284178800a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 0}
   speed: 20
 --- !u!114 &4458102217837497294
 MonoBehaviour:
@@ -328,7 +327,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -5930094864120147472, guid: 898a303069b29834fa67b78d7ae78a3b, type: 3}
+  - {fileID: 2100000, guid: 4331458abbd680d4ca5a8924ac1b66bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
