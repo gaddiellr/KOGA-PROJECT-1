@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7866523046273331077}
   - component: {fileID: 7866523046273331078}
   - component: {fileID: 4629453110489071270}
+  - component: {fileID: 6522798747539552271}
+  - component: {fileID: 818284159612175349}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -1298,7 +1300,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1307,8 +1309,8 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 0}
-        key1: {r: 1, g: 1, b: 1, a: 0.5411765}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key1: {r: 1, g: 1, b: 1, a: 0.84313726}
+        key2: {r: 0, g: 0, b: 0, a: 1}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1323,7 +1325,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 31226
+        atime1: 26792
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -4828,6 +4830,36 @@ MonoBehaviour:
   maxSize: 100
   vel: 20
   dest: 0
+  parent: 0
+--- !u!114 &6522798747539552271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866523046273331072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c030bdac569b5043a9820fd3fa09abd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material:
+  - {fileID: 2100000, guid: 50060d112037eac44a4960049a96fa7e, type: 2}
+  - {fileID: 2100000, guid: 1f760a67d0173f24b8b148f3a5d7edbf, type: 2}
+  - {fileID: 2100000, guid: bc1b0f52b6c23a64ca037e1eb6d1907f, type: 2}
+--- !u!114 &818284159612175349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866523046273331072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab7d59f177a7ca46b70ddd15b787256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ps: {fileID: 7866523046273331077}
 --- !u!1 &7866523046858933650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,6 +4871,7 @@ GameObject:
   - component: {fileID: 7866523046858933649}
   - component: {fileID: 229940755056594374}
   - component: {fileID: -3255477178689217577}
+  - component: {fileID: 8005828196536721073}
   m_Layer: 0
   m_Name: Neb
   m_TagString: Untagged
@@ -4891,6 +4924,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  neb: 1
   bg: 1
   rigidBody: {fileID: 229940755056594374}
+--- !u!114 &8005828196536721073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7866523046858933650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e46ec9ac8372f134086b616429fd4e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSize: 1
+  vel: 20
+  dest: 0
+  parent: 1

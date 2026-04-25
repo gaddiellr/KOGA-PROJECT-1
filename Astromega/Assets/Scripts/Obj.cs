@@ -7,6 +7,7 @@ public class Obj : MonoBehaviour
     public float maxSize = 100f;
     public float vel = 20f;
     public bool dest = false;
+    public bool parent = false;
     private float t;
     private float growTime;
     private float timer = 0f;
@@ -27,7 +28,7 @@ public class Obj : MonoBehaviour
 
     void Update()
     {
-        if (timer < growTime)
+        if (timer < growTime && !parent)
         {
             transform.localScale = Vector3.Lerp(startScale, maxScale, timer / growTime);
             timer += Time.deltaTime;

@@ -131,8 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  neb: 0
-  bg: 1
+  bg: 0
   rigidBody: {fileID: 7096921218923173311}
 --- !u!114 &3403231842482647404
 MonoBehaviour:
@@ -147,7 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material:
-  - {fileID: 2100000, guid: bbd62755b5fdef14d908b1b2115f73bf, type: 2}
-  - {fileID: 2100000, guid: 00c50695963ee2545bbfa97525b0b865, type: 2}
-  - {fileID: 2100000, guid: 92a02f8b1aa0cb14ebe5a5f27334a008, type: 2}
-  - {fileID: 2100000, guid: d53e559d3b6c4414d8f71bda9a61940c, type: 2}
+  - {fileID: 2100000, guid: 58dc06016360b7345b515758d2ed9a33, type: 2}
+  - {fileID: 2100000, guid: 57c1f050a3e483b41b1e7b48f3799614, type: 2}
+  - {fileID: 2100000, guid: d9cc63e0e1a1c004ca1ebb31461a0a05, type: 2}
+  - {fileID: 2100000, guid: e501bbc3b4841e14e9dc0ebb5d1980cc, type: 2}
+  - {fileID: 2100000, guid: c1c1ecba4ee90b140a4567b1cfde9d13, type: 2}

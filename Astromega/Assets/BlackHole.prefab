@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   neb: 0
-  bg: 1
+  bg: 0
   rigidBody: {fileID: 7813003438348154035}
 --- !u!1 &3025798543477384389
 GameObject:

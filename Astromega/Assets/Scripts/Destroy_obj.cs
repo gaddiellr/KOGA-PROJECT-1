@@ -38,9 +38,9 @@ public class Destroy_obj : MonoBehaviour
             Vector3 pos = gameObject.transform.position;
             Quaternion rot = Random.rotation;
             Instantiate(explosionPrefab, pos, rot);
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             Destroy(gameObject);
-            spawner.Spawn = true;
+            //spawner.Spawn = true;
         }
     }
 

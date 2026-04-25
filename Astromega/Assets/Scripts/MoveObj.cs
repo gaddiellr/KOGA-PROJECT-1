@@ -1,4 +1,3 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,22 +5,6 @@ using UnityEngine;
 public class MoveObj : MonoBehaviour
 {
     public float speed = 20f;
-
-    void Update()
-    {
-        transform.position += Vector3.back * speed * Time.deltaTime;
-    }
-}
-*/
-
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class MoveObj : MonoBehaviour
-{
-    public float speed = 20f;
-    public bool neb = false;
     public bool bg = false;
     [SerializeField] private Rigidbody rigidBody;
     private float distance;
@@ -38,8 +21,7 @@ public class MoveObj : MonoBehaviour
             distance = ObjManager.Instance.spawner.Dist;
             vel = distance / t;
             startTime = Time.time;
-            if (neb) rigidBody.velocity = new Vector3(vel, 0, rigidBody.velocity.z);
-            else rigidBody.velocity = new Vector3(vel, 0, - speed);
+            rigidBody.velocity = new Vector3(vel, 0, rigidBody.velocity.z);
         }
         else rigidBody.velocity = new Vector3(0, 0, - speed);
     }
@@ -50,20 +32,15 @@ public class MoveObj : MonoBehaviour
         {
             if ((Time.time - startTime) < t)
             {
-                if (neb)
-                {
-                    rigidBody.velocity = new Vector3(vel, 0, rigidBody.velocity.z);
-                }
+                rigidBody.velocity = new Vector3(vel, 0, rigidBody.velocity.z);
             }
             else
             {
                 if (!end)
                 {
-                    if (neb) rigidBody.velocity = new Vector3(0, 0, rigidBody.velocity.z);
-                    else rigidBody.velocity = new Vector3(0, 0, - speed);
+                    rigidBody.velocity = new Vector3(0, 0, rigidBody.velocity.z);
                     end = true;
                 }
-
             }
         }
     }

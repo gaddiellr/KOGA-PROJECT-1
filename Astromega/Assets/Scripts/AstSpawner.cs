@@ -24,7 +24,7 @@ public class AstSpawner : MonoBehaviour
     void Update()
     {
         dt= Time.time - lastT;
-        if (dt >= 5.0f)
+        if (dt >= 10.0f)
         {
             Spawn = true;
         }
