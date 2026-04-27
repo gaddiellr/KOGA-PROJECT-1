@@ -51,7 +51,7 @@ public class Shoot : MonoBehaviour
         else
         {
             radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2);
-            circleCenter = buttonRect.anchoredPosition;
+            circleCenter = new Vector2(Screen.width - 300, 300);
             Debug.Log("No save file found.");
         }
     }

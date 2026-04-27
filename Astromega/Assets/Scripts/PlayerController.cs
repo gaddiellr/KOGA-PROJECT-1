@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
                     lastT = Time.time;
                 }
             }
-            else if (dt > 2f)
+            else if (dt > 4f)
             {
                 List<int> select = new() {0, 1, 2, 3};
                 select.Remove(x);
