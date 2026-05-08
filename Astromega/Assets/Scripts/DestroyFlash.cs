@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy_flash : MonoBehaviour
+public class DestroyFlash : MonoBehaviour
 {
     public void DestroySelf()
     {

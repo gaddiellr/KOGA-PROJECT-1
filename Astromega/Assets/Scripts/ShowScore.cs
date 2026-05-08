@@ -5,27 +5,26 @@ public class ShowScore : MonoBehaviour
 {
     public TextMeshProUGUI scoretxt;
 
-    private void OnEnable()
+    private void Start()
     {
-        if (ScoreManager.Instance != null)
+        if (StatisticManager.Instance != null)
         {
-            ScoreManager.Instance.OnScoreChanged += UpdateScore;
-            UpdateScore(ScoreManager.Instance.Score);
+            StatisticManager.Instance.OnScoreChanged += UpdateScore;
+            UpdateScore(StatisticManager.Instance.Score);
         }
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
-        if (ScoreManager.Instance != null)
-            ScoreManager.Instance.OnScoreChanged -= UpdateScore;
+        if (StatisticManager.Instance != null)
+        {
+            StatisticManager.Instance.OnScoreChanged -= UpdateScore;
+        }
     }
 
     private void UpdateScore(int newScore)
     {
-        if (scoretxt == null)
-        {
-            return;
-        }
+        if (scoretxt == null) return;
         scoretxt.text = "Score: " + newScore;
     }
 }

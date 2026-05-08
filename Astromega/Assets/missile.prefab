@@ -233,16 +233,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bea3d0e9bb3d43439a58296c24ec0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTag0: astn0
-  targetTag1: astn1
-  targetTag2: astn2
-  targetTag3: astn3
-  targetTag4: astn4
-  targetTag5: astn5
-  targetTag6: astn6
-  targetTag7: astn7
-  targetTag8: astn8
-  targetTag9: astn9
+  prefabs:
+  - {fileID: 1797799750985326235, guid: b1635c33022c1554c832a5263d198e66, type: 3}
+  - {fileID: 1797799750985326235, guid: cc5bec1909c9054498bef08d052f231a, type: 3}
+  - {fileID: 1797799750985326235, guid: 700e69c55df29404c911ca548fe93fae, type: 3}
+  - {fileID: 1797799750985326235, guid: 28a7cc2caa923154ab496111f420f675, type: 3}
+  - {fileID: 1797799750985326235, guid: 29d95ff0d4b08734fb62903d8592effe, type: 3}
+  - {fileID: 1797799750985326235, guid: bb7db3886e69bcc40abd12cfada41e03, type: 3}
+  - {fileID: 1797799750985326235, guid: 0a5dda3c775e08f48aba558956470cef, type: 3}
+  - {fileID: 1797799750985326235, guid: 02681b902b30db044ba93d6ad01cf4b7, type: 3}
+  - {fileID: 1797799750985326235, guid: 67b564f6084c623409e5040c651038c9, type: 3}
+  - {fileID: 1797799750985326235, guid: b1fad43a422ffdf43baa44375b068a0b, type: 3}
   explosionPrefab: {fileID: 5352953407842582504, guid: 43cc652fc6633f148a9086b97685a9f3,
     type: 3}
 --- !u!136 &3310662686982264895

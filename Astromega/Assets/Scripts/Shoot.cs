@@ -22,10 +22,13 @@ public class Shoot : MonoBehaviour
     private string filePath;
     private string fileName = "settings.json";
 
+    void Awake()
+    {
+        filePath = Path.Combine(Application.persistentDataPath, fileName);
+    }
+
     void Start()
     {
-        string folderPath = Path.Combine(Application.dataPath, "Config");
-        filePath = Path.Combine(folderPath, fileName);
         LoadSettingsFile();
     }
 
@@ -85,13 +88,13 @@ public class Shoot : MonoBehaviour
             int rand = Random.Range(0, 2);
             up = rand == 1;
             if (up){
-                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x - 0.2f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, -90f, -90f));
-                Instantiate(flash, new Vector3(spawnPoint.position.x - 0.2f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, 0f, 0f));
+                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x - 0.2f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 2.47f), Quaternion.Euler(0f, -90f, -90f));
+                Instantiate(flash, new Vector3(spawnPoint.position.x - 0.2f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 2.47f), Quaternion.Euler(0f, 0f, 0f));
             }
             else
             {
-                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, -90f, -90f));
-                Instantiate(flash, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, 0f, 0f));
+                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 2.47f), Quaternion.Euler(0f, -90f, -90f));
+                Instantiate(flash, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 2.47f), Quaternion.Euler(0f, 0f, 0f));
             }
             if (soundtracks.Length > 0)
             {

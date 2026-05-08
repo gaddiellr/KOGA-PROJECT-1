@@ -14,7 +14,7 @@ public class Explosion : MonoBehaviour
     void Start()
     {
         ps.Play();
-        if (soundtracks.Length > 0)
+        if (audioSource && soundtracks.Length > 0)
         {
             PlayRandomTrack();
         }

@@ -9,10 +9,13 @@ public class LoadSettings : MonoBehaviour
     private string filePath;
     private string fileName = "settings.json";
 
+    void Awake()
+    {
+        filePath = Path.Combine(Application.persistentDataPath, fileName);
+    }
+
     void Start()
     {
-        string folderPath = Path.Combine(Application.dataPath, "Config");
-        filePath = Path.Combine(folderPath, fileName);
         LoadSettingsFile();
     }
 

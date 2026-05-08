@@ -34,12 +34,12 @@ public class ObjSpawner : MonoBehaviour
         {
             spawn = false;
             //x = start ? -1 : Random.Range(-1, 3);
-            x = Random.Range(0, 3);
+            x = 2;
             if (start) start = false;
 
             if (x == 2)
             {
-                x = Random.Range(-1, 3);
+                //x = Random.Range(-1, 3);
                 if (x == 2)
                 {
                     ry = Random.Range(-max[x], max[x]) / 1.5f;

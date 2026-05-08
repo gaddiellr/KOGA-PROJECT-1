@@ -11,15 +11,14 @@ public class SaveSettings : MonoBehaviour
     private string filePath;
     [SerializeField] private string fileName = "settings.json";
 
+     void Awake()
+    {
+        filePath = Path.Combine(Application.persistentDataPath, fileName);
+        Debug.Log("Persistent Path = " + filePath);
+    }
+
     void Start()
     {
-        string folderPath = Path.Combine(Application.dataPath, "Config");
-        if (!Directory.Exists(folderPath))
-        {
-            Directory.CreateDirectory(folderPath);
-            Debug.Log($"?? Created: {folderPath}");
-        }
-        filePath = Path.Combine(folderPath, fileName);
         LoadSettingsFile();
     }
 

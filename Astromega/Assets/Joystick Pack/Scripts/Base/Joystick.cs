@@ -41,6 +41,11 @@ public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
     private string filePath;
     private string fileName = "settings.json";
 
+    void Awake()
+    {
+        filePath = Path.Combine(Application.persistentDataPath, fileName);
+    }
+
     protected virtual void Start()
     {
         HandleRange = handleRange;
@@ -57,8 +62,6 @@ public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
         cam = null;
         if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
             cam = canvas.worldCamera;
-        string folderPath = Path.Combine(Application.dataPath, "Config");
-        filePath = Path.Combine(folderPath, fileName);
         LoadSettingsFile();
     }
 
