@@ -5,7 +5,7 @@ public class Git : MonoBehaviour
     public Animator animator;
     public string githubURL = "https://github.com/";
 
-    public void PlayAnimation()
+    void PlayAnimation()
     {
         if (animator != null)
         {
@@ -13,7 +13,7 @@ public class Git : MonoBehaviour
         }
     }
 
-    public void OpenGitHub()
+    void OpenGitHub()
     {
         Application.OpenURL(githubURL);
     }

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    private ParticleSystem ps;
     public AudioSource audioSource;
     public AudioClip[] soundtracks;
+    private ParticleSystem ps;
 
     void Awake()
     {

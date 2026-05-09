@@ -17,18 +17,18 @@ public class Slider_Value : MonoBehaviour
     private float minSize;
     private float maxSize;
 
-    // Flag para evitar recursión
+    // Flag para evitar recursiï¿½n
     private bool isLoadingFromJSON = false;
 
     private void Awake()
     {
-        // Guardar configuración original
+        // Guardar configuraciï¿½n original
         if (targetRectTransform != null)
         {
             originalSize = targetRectTransform.sizeDelta;
             originalAspectRatio = originalSize.x / originalSize.y;
             minSize = originalSize.y; // Alto original
-            maxSize = originalSize.y * 3f; // 3x el tamaño original
+            maxSize = originalSize.y * 3f; // 3x el tamaï¿½o original
         }
     }
 
@@ -39,7 +39,7 @@ public class Slider_Value : MonoBehaviour
 
         if (targetRectTransform == null)
         {
-            Debug.LogError("Target RectTransform no está asignado!");
+            Debug.LogError("Target RectTransform no estï¿½ asignado!");
             return;
         }
 
@@ -63,15 +63,15 @@ public class Slider_Value : MonoBehaviour
             // Agregar nuevo listener
             sizeSlider.onValueChanged.AddListener(OnSizeChanged);
 
-            // Calcular valor basado en el tamaño actual
+            // Calcular valor basado en el tamaï¿½o actual
             float currentHeight = targetRectTransform.sizeDelta.y;
             float normalizedValue = Mathf.InverseLerp(minSize, maxSize, currentHeight);
             sizeSlider.value = normalizedValue;
         }
     }
 
-    // Método público para actualizar desde JSON sin sobrescribir
-    public void UpdateFromJSON(float newHeight, float newWidth)
+    // Mï¿½todo pï¿½blico para actualizar desde JSON sin sobrescribir
+    void UpdateFromJSON(float newHeight, float newWidth)
     {
         if (targetRectTransform == null) return;
 
@@ -79,7 +79,7 @@ public class Slider_Value : MonoBehaviour
 
         isLoadingFromJSON = true;
 
-        // Cambiar el tamaño del target
+        // Cambiar el tamaï¿½o del target
         if (maintainAspectRatio)
         {
             targetRectTransform.sizeDelta = new Vector2(newWidth, newHeight);
@@ -100,7 +100,7 @@ public class Slider_Value : MonoBehaviour
         isLoadingFromJSON = false;
     }
 
-    public void OnSizeChanged(float value)
+    void OnSizeChanged(float value)
     {
         // Ignorar si estamos cargando desde JSON
         if (isLoadingFromJSON)
@@ -111,7 +111,7 @@ public class Slider_Value : MonoBehaviour
 
         if (targetRectTransform == null) return;
 
-        Debug.Log($"??? Slider cambió a: {value}");
+        Debug.Log($"??? Slider cambiï¿½ a: {value}");
 
         float newHeight = Mathf.Lerp(minSize, maxSize, value);
 

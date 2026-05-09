@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public Image img;
     public Material[] materials;
     public GameObject[] prefabs;
+    public AudioSource audioSource;
+    public AudioClip[] soundtracks;
     private int x = 0;
     private bool enter = false;
     private bool hit = false;
@@ -65,6 +67,10 @@ public class PlayerController : MonoBehaviour
             if (dtt >= 0.06f)
             {
                 Instantiate(prefabs[n], pos, Quaternion.identity);
+                if (audioSource && soundtracks.Length > 0)
+                {
+                    PlayRandomTrack();
+                }
                 hit = false;
             }
         }
@@ -94,5 +100,13 @@ public class PlayerController : MonoBehaviour
             pos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);
             lastTt = Time.time;
         }
+    }
+    
+    void PlayRandomTrack()
+    {
+        if (soundtracks.Length == 0) return;
+        int randomIndex= Random.Range(0, soundtracks.Length);
+        audioSource.clip = soundtracks[randomIndex];
+        audioSource.Play();
     }
 }

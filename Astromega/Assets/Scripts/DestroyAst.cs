@@ -8,6 +8,27 @@ public class DestroyAst : MonoBehaviour
     private bool hit = false;
     private float dt = 0.0f;
     private float lastT = 0.0f;
+    private AstSpawner spawner;
+    private int n;
+    private int r;
+    private int b;
+    private int a;
+    
+    private void Awake()
+    {
+        spawner = FindObjectOfType<AstSpawner>();
+    }
+
+    void Start()
+    {
+        n = int.Parse(gameObject.tag.Substring(4));
+        if (spawner != null)
+        {
+            r = spawner.R;
+            b = spawner.B;
+            a = spawner.A;
+        }
+    }
 
     void Update()
     {
@@ -26,7 +47,15 @@ public class DestroyAst : MonoBehaviour
     {
         if (other.CompareTag(targetTag))
         {
+            if (spawner != null)
+            {
+                if (n == ((r - b) / a))
+                {
+                    StatisticManager.Instance.AddHealth(10);
+                }
+            }
             Destroy(gameObject);
+
         }
     }
     

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyObj : MonoBehaviour
 {
     public GameObject[] prefabs;
+    public GameObject explosionPrefab;
     private string targetTag0 = "astn0";
     private string targetTag1 = "astn1";
     private string targetTag2 = "astn2";
@@ -15,14 +16,13 @@ public class DestroyObj : MonoBehaviour
     private string targetTag7 = "astn7";
     private string targetTag8 = "astn8";
     private string targetTag9 = "astn9";
-    public GameObject explosionPrefab;
     private AstSpawner spawner;
-
+    
     private void Awake()
     {
         spawner = FindObjectOfType<AstSpawner>();
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(targetTag0) || other.CompareTag(targetTag1) || other.CompareTag(targetTag2) || other.CompareTag(targetTag3) || other.CompareTag(targetTag4) || other.CompareTag(targetTag5) || other.CompareTag(targetTag6) || other.CompareTag(targetTag7) || other.CompareTag(targetTag8) || other.CompareTag(targetTag9))
@@ -33,6 +33,10 @@ public class DestroyObj : MonoBehaviour
                 if (n == ((spawner.R - spawner.B) / spawner.A))
                 {
                     StatisticManager.Instance.AddScore(1);
+                }
+                else
+                {
+                    StatisticManager.Instance.AddHealth(10);
                 }
             }
             Vector3 pos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z); //pos = gameObject.transform.position;

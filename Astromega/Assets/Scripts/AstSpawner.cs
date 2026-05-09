@@ -4,16 +4,16 @@ using UnityEngine;
 public class AstSpawner : MonoBehaviour
 {
     public GameObject[] prefabs;
+    private float max = 17.51f;
+    private float min = -17.5f;
+    private float dt = 0.0f;
+    private float lastT = 0.0f;
     private int a;
     private int b;
     private int r;
     public int A => a;
     public int B => b;
     public int R => r;
-    private float max = 17.51f;
-    private float min = -17.5f;
-    private float dt = 0.0f;
-    private float lastT = 0.0f;
     private bool spawn = true;
     public bool Spawn
     {
@@ -24,7 +24,7 @@ public class AstSpawner : MonoBehaviour
     void Update()
     {
         dt= Time.time - lastT;
-        if (dt >= 5.0f)
+        if (dt >= 6.0f)
         {
             Spawn = true;
         }

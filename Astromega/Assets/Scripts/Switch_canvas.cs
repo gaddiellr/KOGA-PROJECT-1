@@ -7,7 +7,7 @@ public class Switch_canvas : MonoBehaviour
     public RectTransform button;
     public RectTransform joystick;
 
-    public void ChangeHand(int value)
+    void ChangeHand(int value)
     {
         if (value == 0) // Right hand
         {

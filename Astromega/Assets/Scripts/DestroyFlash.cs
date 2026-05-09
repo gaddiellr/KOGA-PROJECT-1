@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyFlash : MonoBehaviour
 {
-    public void DestroySelf()
+    void DestroySelf()
     {
         Destroy(gameObject);
     }

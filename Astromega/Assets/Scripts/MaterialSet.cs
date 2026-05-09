@@ -5,7 +5,7 @@ using UnityEngine;
 public class MaterialSet : MonoBehaviour
 {
     public Material[] material;
-    Renderer rend;
+    private Renderer rend;
 
     void Start()
     {

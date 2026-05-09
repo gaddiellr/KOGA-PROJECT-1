@@ -33,30 +33,14 @@ public class ObjSpawner : MonoBehaviour
         if (spawn == true)
         {
             spawn = false;
-            //x = start ? -1 : Random.Range(-1, 3);
-            x = 2;
+            x = start ? -1 : Random.Range(-1, 3);
+            //x = 2;
             if (start) start = false;
-
-            if (x == 2)
-            {
-                //x = Random.Range(-1, 3);
-                if (x == 2)
-                {
-                    ry = Random.Range(-max[x], max[x]) / 1.5f;
-                    rz = Random.Range(-max[x], max[x]) / 1.5f;
-                }
-                else
-                {
-                    ry = 0f;
-                    rz = 0f;
-                }
-            }
-            
+            if (x == 2) x = Random.Range(-1, 3);
             Debug.Log(x);
             tObj = t[x + 1];
             if (x > -1)
             {
-                
                 px = Random.Range(-max[x], max[x]);
                 py = Random.Range(-max[x], max[x]);
                 while (px > -min[x] && px < min[x] && py > -min[x] && py < min[x])
@@ -64,7 +48,13 @@ public class ObjSpawner : MonoBehaviour
                     px = Random.Range(-max[x], max[x]);
                     py = Random.Range(-max[x], max[x]);
                 }
-                
+                ry = 0f;
+                rz = 0f;
+                if (x == 2)
+                {
+                    ry = (px < 0) ? Random.Range(-max[x], 0) / 1.5f : Random.Range(0, max[x]) / 1.5f;
+                    rz = (py < 0) ? Random.Range(-max[x], 0) / 1.5f : Random.Range(0, max[x]) / 1.5f;
+                }
                 float pz = 17f * tObj;
                 float sx = Mathf.Tan(30.55f * Mathf.Deg2Rad) * pz + 20f;
                 dist = px - sx;
