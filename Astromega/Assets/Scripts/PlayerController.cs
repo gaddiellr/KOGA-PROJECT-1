@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Rigidbody), typeof (BoxCollider))]
@@ -9,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private FixedJoystick _joystick;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private Volume vol;
+    private LensDistortion lensD;
     public GameObject black;
     public Image img;
     public Material[] materials;
@@ -36,6 +40,10 @@ public class PlayerController : MonoBehaviour
     private Vector3 pos;
     private Vector4 imgColor;
 
+    void Start()
+    {
+        vol.profile.TryGet(out lensD);
+    }
     void Update()
     {
         dt = Time.time - lastT;
@@ -53,13 +61,29 @@ public class PlayerController : MonoBehaviour
             }
             else if (dt > 4f)
             {
-                List<int> select = new() {0, 1, 2, 3};
-                select.Remove(x);
-                x = select[Random.Range(0, select.Count)];
-                RenderSettings.skybox = materials[x];
-                black.SetActive(false);
-                img.color = new Vector4(0f, 0f, 0f, 0f);
-                enter = false;
+                if (black.activeSelf)
+                {
+                    lensD.intensity.value = -1f;
+                    lensD.scale.value = 0.15f;
+                    List<int> select = new() {0, 1, 2, 3};
+                    select.Remove(x);
+                    x = select[Random.Range(0, select.Count)];
+                    RenderSettings.skybox = materials[x];
+                    black.SetActive(false);
+                    img.color = new Vector4(0f, 0f, 0f, 0f);
+                }
+                else if (!black.activeSelf)
+                {
+                    if (lensD.scale.value < 1f)
+                    {
+                        lensD.scale.value += 0.85f/25f;
+                    }
+                    else if (lensD.intensity.value < 0f)
+                    {
+                        lensD.intensity.value += 1f/25f;
+                    }
+                    else enter = false;
+                }
             }
         }
         if (hit)

@@ -2338,6 +2338,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 891069369}
   _joystick: {fileID: 314560586}
   moveSpeed: 20
+  vol: {fileID: 93901498}
   black: {fileID: 148689230}
   img: {fileID: 148689233}
   materials:
