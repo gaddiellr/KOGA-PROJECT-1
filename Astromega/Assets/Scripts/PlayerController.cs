@@ -39,6 +39,12 @@ public class PlayerController : MonoBehaviour
     private int n;
     private Vector3 pos;
     private Vector4 imgColor;
+    private AstSpawner spawner;
+    
+    private void Awake()
+    {
+        spawner = FindObjectOfType<AstSpawner>();
+    }
 
     void Start()
     {
@@ -118,7 +124,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log(other.gameObject.tag);
         if (other.gameObject.CompareTag(targetTag0) || other.gameObject.CompareTag(targetTag1) || other.gameObject.CompareTag(targetTag2) || other.gameObject.CompareTag(targetTag3) || other.gameObject.CompareTag(targetTag4) || other.gameObject.CompareTag(targetTag5) || other.gameObject.CompareTag(targetTag6) || other.gameObject.CompareTag(targetTag7) || other.gameObject.CompareTag(targetTag8) || other.gameObject.CompareTag(targetTag9))
         {
-            StatisticManager.Instance.AddHealth(10);
+            if (spawner.Reduce)
+            {
+                StatisticManager.Instance.AddHealth(10);
+                spawner.Reduce = false;
+            }
             hit = true;
             n = int.Parse(other.gameObject.tag.Substring(4));
             pos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z);

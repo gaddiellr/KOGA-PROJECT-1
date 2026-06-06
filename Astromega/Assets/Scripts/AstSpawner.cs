@@ -20,6 +20,12 @@ public class AstSpawner : MonoBehaviour
         get { return spawn; }
         set { spawn = value; }
     }
+    private bool reduce = true;
+    public bool Reduce
+    {
+        get { return reduce; }
+        set { reduce = value; }
+    }
 
     void Update()
     {
@@ -31,6 +37,7 @@ public class AstSpawner : MonoBehaviour
         if (Spawn == true)
         {
             Spawn = false;
+            Reduce = true;
             List<int> num = new() {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
             List<float> pointsx = new List<float>();
             List<float> pointsy = new List<float>();

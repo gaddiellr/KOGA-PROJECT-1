@@ -33,10 +33,15 @@ public class DestroyObj : MonoBehaviour
                 if (n == ((spawner.R - spawner.B) / spawner.A))
                 {
                     StatisticManager.Instance.AddScore(1);
+                    spawner.Reduce = false;
                 }
                 else
                 {
-                    StatisticManager.Instance.AddHealth(10);
+                    if (spawner.Reduce)
+                    {
+                        StatisticManager.Instance.AddHealth(10);
+                        spawner.Reduce = false;
+                    }
                 }
             }
             Vector3 pos = new Vector3(other.gameObject.transform.position.x, other.gameObject.transform.position.y, other.gameObject.transform.position.z); //pos = gameObject.transform.position;

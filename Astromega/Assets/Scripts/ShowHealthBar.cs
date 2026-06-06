@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-public class ShowHealth : MonoBehaviour
+public class ShowHealthBar : MonoBehaviour
 {
-    public TextMeshProUGUI healthtxt;
+    public RectTransform barRect;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class ShowHealth : MonoBehaviour
 
     private void UpdateHealth(int newHealth)
     {
-        if (healthtxt == null) return;
-        healthtxt.text = newHealth + "/100";
+        if (barRect == null) return;
+        barRect.sizeDelta = (newHealth < 0) ? new Vector2(0, 0) : new Vector2(newHealth * 10, barRect.sizeDelta.y);;
     }
 }

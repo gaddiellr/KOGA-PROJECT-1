@@ -51,7 +51,11 @@ public class DestroyAst : MonoBehaviour
             {
                 if (n == ((r - b) / a))
                 {
-                    StatisticManager.Instance.AddHealth(10);
+                    if (spawner.Reduce)
+                    {
+                        StatisticManager.Instance.AddHealth(10);
+                        spawner.Reduce = false;
+                    }
                 }
             }
             Destroy(gameObject);
