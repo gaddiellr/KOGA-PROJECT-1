@@ -69,26 +69,33 @@ public class PlayerController : MonoBehaviour
             {
                 if (black.activeSelf)
                 {
-                    lensD.intensity.value = -1f;
                     lensD.scale.value = 0.15f;
+                    lensD.intensity.value = -1f;
                     List<int> select = new() {0, 1, 2, 3};
                     select.Remove(x);
                     x = select[Random.Range(0, select.Count)];
                     RenderSettings.skybox = materials[x];
                     black.SetActive(false);
                     img.color = new Vector4(0f, 0f, 0f, 0f);
+                    _rigidbody.position = new Vector3(0f, 0f, 1.3f);
                 }
                 else if (!black.activeSelf)
                 {
-                    if (lensD.scale.value < 1f)
+                    if (1f - lensD.scale.value > 0.00001f)
                     {
                         lensD.scale.value += 0.85f/25f;
                     }
-                    else if (lensD.intensity.value < 0f)
+                    else if (lensD.intensity.value < -0.00001f)
                     {
                         lensD.intensity.value += 1f/25f;
                     }
-                    else enter = false;
+                    else 
+                    {
+                        lensD.scale.value = 1f;
+                        lensD.intensity.value = 0f;
+                        enter = false;
+                        spawner.Stop = false;
+                    }
                 }
             }
         }
@@ -117,11 +124,12 @@ public class PlayerController : MonoBehaviour
             }
             black.SetActive(true);
             enter = true;
+            spawner.Stop = true;
+            spawner.Reduce = false;
         }
     }
 
     void OnCollisionEnter(Collision other){
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.CompareTag(targetTag0) || other.gameObject.CompareTag(targetTag1) || other.gameObject.CompareTag(targetTag2) || other.gameObject.CompareTag(targetTag3) || other.gameObject.CompareTag(targetTag4) || other.gameObject.CompareTag(targetTag5) || other.gameObject.CompareTag(targetTag6) || other.gameObject.CompareTag(targetTag7) || other.gameObject.CompareTag(targetTag8) || other.gameObject.CompareTag(targetTag9))
         {
             if (spawner.Reduce)

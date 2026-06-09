@@ -22,7 +22,7 @@ public class ObjSpawner : MonoBehaviour
     private float dist = 0f;
     public float TObj => tObj;
     public float Dist => dist;
-        
+    
     void Update()
     {
         dt= Time.time - lastT;
@@ -33,10 +33,10 @@ public class ObjSpawner : MonoBehaviour
         if (spawn == true)
         {
             spawn = false;
-            x = start ? -1 : Random.Range(-1, 3);
+            //x = start ? -1 : Random.Range(-1, 3);
             if (start) start = false;
-            if (x == 2) x = Random.Range(-1, 3);
-            //x = 2;
+            //if (x == 2) x = Random.Range(-1, 3);
+            x = 2;
             Debug.Log(x);
             tObj = t[x + 1];
             if (x > -1)

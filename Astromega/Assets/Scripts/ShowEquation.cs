@@ -16,11 +16,11 @@ public class ShowEquation : MonoBehaviour
         }
         if (spawner.B >= 0)
         {
-            equation.text = "Equation: " + spawner.A.ToString() + "x + " + spawner.B.ToString() + " = " + spawner.R.ToString();
+            equation.text = spawner.A.ToString() + "x + " + spawner.B.ToString() + " = " + spawner.R.ToString();
         }
         else
         {
-            equation.text = "Equation: " + spawner.A.ToString() + "x - " + (-1 * spawner.B).ToString() + " = " + spawner.R.ToString();
+            equation.text = spawner.A.ToString() + "x - " + (-1 * spawner.B).ToString() + " = " + spawner.R.ToString();
         }
     }
 }

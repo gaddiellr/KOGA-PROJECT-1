@@ -10,9 +10,6 @@ public class DestroyAst : MonoBehaviour
     private float lastT = 0.0f;
     private AstSpawner spawner;
     private int n;
-    private int r;
-    private int b;
-    private int a;
     
     private void Awake()
     {
@@ -22,12 +19,6 @@ public class DestroyAst : MonoBehaviour
     void Start()
     {
         n = int.Parse(gameObject.tag.Substring(4));
-        if (spawner != null)
-        {
-            r = spawner.R;
-            b = spawner.B;
-            a = spawner.A;
-        }
     }
 
     void Update()
@@ -49,13 +40,10 @@ public class DestroyAst : MonoBehaviour
         {
             if (spawner != null)
             {
-                if (n == ((r - b) / a))
+                if (spawner.Reduce)
                 {
-                    if (spawner.Reduce)
-                    {
-                        StatisticManager.Instance.AddHealth(10);
-                        spawner.Reduce = false;
-                    }
+                    StatisticManager.Instance.AddHealth(10);
+                    spawner.Reduce = false;
                 }
             }
             Destroy(gameObject);

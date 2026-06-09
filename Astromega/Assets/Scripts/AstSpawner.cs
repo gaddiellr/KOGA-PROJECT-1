@@ -26,11 +26,17 @@ public class AstSpawner : MonoBehaviour
         get { return reduce; }
         set { reduce = value; }
     }
+    private bool stop = false;
+    public bool Stop
+    {
+        get { return stop; }
+        set { stop = value; }
+    }
 
     void Update()
     {
         dt= Time.time - lastT;
-        if (dt >= 6.0f)
+        if (dt >= 6.0f && !Stop)
         {
             Spawn = true;
         }
