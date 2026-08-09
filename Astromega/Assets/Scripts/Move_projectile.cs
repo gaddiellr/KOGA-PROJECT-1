@@ -19,17 +19,16 @@ public class Move_projectile : MonoBehaviour
         {
             if (UpManager.Instance.shootB.Up)
             {
-                transform.position += new Vector3(-1.5f/(interval * speed), 0.1f, -0.2f/(interval * speed)) * speed * Time.deltaTime;
+                transform.position += new Vector3(0.2f/(interval * speed), 1.5f/(interval * speed), 0.1f) * speed * Time.deltaTime;
             }
             else
             {
-                transform.position += new Vector3(-1.5f/(interval * speed), 0.1f, -0.7f/(interval * speed)) * speed * Time.deltaTime;
+                transform.position += new Vector3(0.7f/(interval * speed), 1.5f/(interval * speed), 0.1f) * speed * Time.deltaTime;
             }
-            
         }
         else
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
+            transform.position += Vector3.forward * speed * Time.deltaTime;
         }
         if ((Time.time - startTime) >= 5f)
         {

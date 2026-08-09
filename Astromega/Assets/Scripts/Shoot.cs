@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.IO;
 
 public class Shoot : MonoBehaviour
 {
@@ -10,20 +11,51 @@ public class Shoot : MonoBehaviour
     public Transform spawnPoint;
     public RectTransform buttonRect;
     public Image targetImage;
+    public AudioSource audioSource;
+    public AudioClip[] soundtracks;
     private Vector2 circleCenter;
     private int radius;
     private float dt = 0.0f;
     private float lastT = -1f;
     private bool up = true;
     public bool Up => up;
+    private string filePath;
+    private string fileName = "settings.json";
 
     void Start()
     {
-        radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2f);
-        circleCenter = new Vector2(Screen.width + buttonRect.anchoredPosition.x, buttonRect.anchoredPosition.y);;
-        Debug.Log(radius);
-        Debug.Log($"Pos X: {circleCenter.x}, Pos Y: {circleCenter.y}");
+        string folderPath = Path.Combine(Application.dataPath, "Config");
+        filePath = Path.Combine(folderPath, fileName);
+        LoadSettingsFile();
     }
+
+    private void LoadSettingsFile()
+    {
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            SettingsData data = JsonUtility.FromJson<SettingsData>(json);
+            radius = Mathf.RoundToInt(160 * (2 * data.buttonVal + 1));
+            if (data.dropdownVal == 0)
+            {
+                circleCenter = new Vector2(Screen.width - 300, 300);
+            }
+            else
+            {
+                circleCenter = new Vector2(300, 300);
+            }
+            Debug.Log(radius);
+            Debug.Log($"Pos X: {circleCenter.x}, Pos Y: {circleCenter.y}");
+            Debug.Log("Loaded from: " + filePath);
+        }
+        else
+        {
+            radius = Mathf.RoundToInt(buttonRect.sizeDelta.x / 2);
+            circleCenter = new Vector2(Screen.width - 300, 300);
+            Debug.Log("No save file found.");
+        }
+    }
+
     void Update()
     {
         if (Touchscreen.current != null)
@@ -53,15 +85,27 @@ public class Shoot : MonoBehaviour
             int rand = Random.Range(0, 2);
             up = rand == 1;
             if (up){
-                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x + 1.5f, spawnPoint.position.y + 0.8f, spawnPoint.position.z + 0.2f), Quaternion.identity);
-                Instantiate(flash, new Vector3(spawnPoint.position.x + 1.5f, spawnPoint.position.y + 0.8f, spawnPoint.position.z + 0.2f), Quaternion.Euler(90f, 0f, 0f));
+                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x - 0.2f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, -90f, -90f));
+                Instantiate(flash, new Vector3(spawnPoint.position.x - 0.2f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, 0f, 0f));
             }
             else
             {
-                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x + 1.5f, spawnPoint.position.y + 0.8f, spawnPoint.position.z + 0.7f), Quaternion.identity);
-                Instantiate(flash, new Vector3(spawnPoint.position.x + 1.5f, spawnPoint.position.y + 0.8f, spawnPoint.position.z + 0.7f), Quaternion.Euler(90f, 0f, 0f));
+                Instantiate(projectilePrefab, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, -90f, -90f));
+                Instantiate(flash, new Vector3(spawnPoint.position.x - 0.7f, spawnPoint.position.y - 1.5f, spawnPoint.position.z + 0.8f), Quaternion.Euler(0f, 0f, 0f));
+            }
+            if (soundtracks.Length > 0)
+            {
+                PlayRandomTrack();
             }
             lastT = Time.time;
         }
+    }
+
+    void PlayRandomTrack()
+    {
+        if (soundtracks.Length == 0) return;
+        int randomIndex= Random.Range(0, soundtracks.Length);
+        audioSource.clip = soundtracks[randomIndex];
+        audioSource.Play();
     }
 }

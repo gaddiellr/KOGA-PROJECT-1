@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.IO;
 
 public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IDragHandler
 {
@@ -24,22 +25,21 @@ public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
     public AxisOptions AxisOptions { get { return AxisOptions; } set { axisOptions = value; } }
     public bool SnapX { get { return snapX; } set { snapX = value; } }
     public bool SnapY { get { return snapY; } set { snapY = value; } }
-
     [SerializeField] private float handleRange = 1;
     [SerializeField] private float deadZone = 0;
     [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
     [SerializeField] private bool snapX = false;
     [SerializeField] private bool snapY = false;
-
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
     private RectTransform baseRect = null;
-
     private Canvas canvas;
     private Camera cam;
-
     private Vector2 input = Vector2.zero;
     private Vector2 position;
+    private Vector2 radius;
+    private string filePath;
+    private string fileName = "settings.json";
 
     protected virtual void Start()
     {
@@ -57,8 +57,37 @@ public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
         cam = null;
         if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
             cam = canvas.worldCamera;
-        position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
+        string folderPath = Path.Combine(Application.dataPath, "Config");
+        filePath = Path.Combine(folderPath, fileName);
+        LoadSettingsFile();
     }
+
+    private void LoadSettingsFile()
+    {
+        if (File.Exists(filePath))
+        {
+            string json = File.ReadAllText(filePath);
+            SettingsData data = JsonUtility.FromJson<SettingsData>(json);
+            radius = new Vector2(Mathf.RoundToInt(160 * (2 * data.joystickVal + 1)), Mathf.RoundToInt(160 * (2 * data.joystickVal + 1)));
+            if (data.dropdownVal == 0)
+            {
+                position = new Vector2(300, 300);
+            }
+            else
+            {
+                position = new Vector2(Screen.width - 300, 300);
+            }
+            Debug.Log(radius);
+            Debug.Log(position);
+            Debug.Log("Loaded from: " + filePath);
+        }
+        else
+        {
+            radius = background.sizeDelta / 2;
+            position = background.anchoredPosition;
+            Debug.Log("No save file found.");
+        }
+    }    
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
@@ -67,7 +96,6 @@ public class Joystick : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, I
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 radius = background.sizeDelta / 2;
         input = (eventData.position - position) / (radius * canvas.scaleFactor);
         FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);

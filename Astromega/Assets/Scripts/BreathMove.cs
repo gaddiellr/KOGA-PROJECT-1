@@ -4,32 +4,15 @@ using UnityEngine;
 
 public class BreathMove : MonoBehaviour
 {
-    /*  
-    public float breathSpeed = 1f;     // Slow = calm breathing
-    public float moveAmount = 10f;     // Pixels up/down
-
-    private RectTransform rectTransform;
-    private Vector2 startPos;
-
-    void Start()
-    {
-        rectTransform = GetComponent<RectTransform>();
-        startPos = rectTransform.anchoredPosition;
-    }
-
-    void Update()
-    {
-        float offset = Mathf.Sin(Time.time * breathSpeed) * moveAmount;
-        rectTransform.anchoredPosition = startPos + new Vector2(0, offset);
-    }
-    */
-[Header("Breathing")]
+    [Header("Breathing")]
     public float breathSpeed = 0.8f;
     public float breathAmount = 8f;
 
+    /*
     [Header("Joystick Movement")]
     public float moveSpeed = 300f;
     public float deadZone = 0.15f;
+    */
 
     [Header("Return To Center")]
     public float returnSpeed = 5f;
@@ -38,7 +21,7 @@ public class BreathMove : MonoBehaviour
     public Vector2 minLimit = new Vector2(-300, -200);
     public Vector2 maxLimit = new Vector2(300, 200);
 
-    public FixedJoystick joystick; // or your joystick
+    //public FixedJoystick joystick; // or your joystick
 
     private RectTransform rectTransform;
     private Vector2 originalPos;   // center position
@@ -53,6 +36,7 @@ public class BreathMove : MonoBehaviour
 
     void Update()
     {
+        /*
         Vector2 input = new Vector2(joystick.Horizontal, joystick.Vertical);
 
         // 🕹️ Move with joystick
@@ -65,6 +49,8 @@ public class BreathMove : MonoBehaviour
         {
             basePos = Vector2.Lerp(basePos, originalPos, returnSpeed * Time.deltaTime);
         }
+        */
+        basePos = Vector2.Lerp(basePos, originalPos, returnSpeed * Time.deltaTime);
 
         // 🔒 Clamp inside limits
         basePos.x = Mathf.Clamp(basePos.x, minLimit.x, maxLimit.x);
@@ -76,4 +62,5 @@ public class BreathMove : MonoBehaviour
         // ✅ Final position
         rectTransform.anchoredPosition = basePos + new Vector2(0, breathOffset);
     }
+
 }
